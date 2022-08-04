@@ -2,6 +2,148 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
 /* Resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
 /* Variables */
+:root {
+  --primary: #000000;
+  --secondary: linear-gradient(180deg, #fffef9 0%, #f7f3e8 100%);
+}
+
 /* Base Styles */
+body {
+  background: var(--secondary);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--primary);
+}
+
+.container {
+  min-height: 100vh;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container * {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navigation a {
+  font-size: 4rem;
+  letter-spacing: -0.02em;
+}
+
+.project {
+  display: flex;
+  gap: 1rem;
+}
+
+.project p {
+  font-size: 0.875rem;
+  letter-spacing: -0.04em;
+  font-weight: 300;
+}
+
+.project p > span {
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.project .project__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project .project__details .project__detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 /* Mobile Styles */
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 1rem;
+  padding: 1rem;
+}
+
+.container > * {
+  grid-column: 1 / -1;
+}
+
+.project > .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.small__images {
+  display: flex;
+  gap: 1rem;
+
+  justify-self: center;
+}
+
+/* Tablt Styles */
+@media screen and (min-width: 790px) {
+  .container {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .navigation {
+    grid-row: 1;
+    gap: 1rem;
+
+    z-index: 1;
+  }
+
+  .project {
+    grid-row: 2;
+  }
+
+  .small__images {
+    flex-direction: column;
+    grid-column: auto / -1;
+    grid-row: 1 / span 2;
+    justify-self: end;
+  }
+}
+
+/* Tablt Styles */
+@media screen and (min-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .project {
+    grid-column-start: 2;
+    margin: -5rem 0 0 4.5rem;
+  }
+}
